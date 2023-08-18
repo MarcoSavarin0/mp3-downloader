@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youtube converter</title>
+</head>
+<body>
+    
+    <form action="converter-mp3" method="POST" id="form">
+        <input type="text" name="videoURL" placeholder="insert URL">
+        <button id="buttonconvert">CONVERT</button>
+    </form>
+
+    <div class="container-bottom">
+        <% if(typeof success != "undefined" && success){  %>
+            <div class="succes">
+                <p><%= song_title%></p>
+                <a href="<%= song_link %>"><button id="down-btn">DOWNLOAD</button></a>
+            </div>
+        <% } else if(typeof success != "undefined" && !success){  %>
+            <div class="err">
+                <p><%= message %></p>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
