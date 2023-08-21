@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>youtube converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <title>yt converter</title>
 </head>
 <body>
     <div class="box-form"> 
@@ -18,8 +21,11 @@
         <% if(typeof success != "undefined" && success){  %>
             <div class="succes">
                 <p><%= song_title%></p>
-                <a href="<%= song_link %>"><button id="down-btn">DOWNLOAD</button></a>
+                <a href="<%= song_link %>"><button id="down-btn">DOWNLOAD MP3</button></a>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= locals?.idVideo %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <% videoData.forEach(videos => { %>
+                    <a href="<%= videos.url %>" target="_blank"><button id="down-btn">VIDEO <strong><%= videos.qualityLabel %></strong></button></a>
+                <% }) %>
             </div>
         <% } else if(typeof success != "undefined" && !success){  %>
             <div class="err">
